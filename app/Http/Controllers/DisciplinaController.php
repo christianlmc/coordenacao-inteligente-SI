@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Departamento;
+use App\Disciplina;
 use Illuminate\Http\Request;
 
 class DisciplinaController extends Controller
@@ -16,6 +17,16 @@ class DisciplinaController extends Controller
 
     public function buscar(Request $request)
     {
-        return "buscador";
+        $com_vagas = $request->has('vagas');
+        $disciplinas = Disciplina::with('turmas')
+            ->where('departamento_id', $request->departamento)
+            ->where('nome', 'like', "%{$request->disciplina}%")
+            ->when($com_vagas, function ($query) {
+                $query->whereHas('turmas', function ($query) {
+                    $query->where('vagas_disponiveis', '>', 0);
+                });
+            })->get();
+
+        return $disciplinas;
     }
 }
