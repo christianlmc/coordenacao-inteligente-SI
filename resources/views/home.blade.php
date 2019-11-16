@@ -22,7 +22,7 @@
                     <h3 class="mt-5">Turmas e Trocas</h3>
                     <hr/>
                     <a href="{{ route('disciplinas.index') }}" role="button" class="btn text-uppercase btn-success btn-lg btn-block">Buscador de Disciplinas</a>
-                    <a href="{{ route('turma_trocas.novo') }}" role="button" class="btn text-uppercase btn-secondary btn-lg btn-block">Troca de Turma</a>
+                    <a href="{{ route('turma_trocas.nova') }}" role="button" class="btn text-uppercase btn-secondary btn-lg btn-block">Troca de Turma</a>
                     <a href="{{ route('turma_trocas.index') }}" role="button" class="btn text-uppercase btn-secondary btn-lg btn-block">Visualizar minhas Trocas</a>
                 </div>
             </div>

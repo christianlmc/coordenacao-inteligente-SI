@@ -1862,6 +1862,141 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
+/***/ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/TrocadorTurmas.vue?vue&type=script&lang=js&":
+/*!*************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib??ref--4-0!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/TrocadorTurmas.vue?vue&type=script&lang=js& ***!
+  \*************************************************************************************************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+/* harmony default export */ __webpack_exports__["default"] = ({
+  mounted: function mounted() {
+    var _this = this;
+
+    axios.get("/api/departamentos").then(function (response) {
+      _this.departamentos = response.data;
+    });
+  },
+  data: function data() {
+    return {
+      departamentos: "",
+      disciplinas: "",
+      turmas_origem: "",
+      turmas_destino: "",
+      openDisciplinas: false
+    };
+  },
+  methods: {
+    loadDisciplinas: function loadDisciplinas(event) {
+      var _this2 = this;
+
+      axios.get("/api/departamentos/".concat(event.target.value, "/disciplinas")).then(function (response) {
+        // console.log(response.data);
+        _this2.disciplinas = response.data;
+      })["catch"](function (error) {
+        console.log(error.response.data);
+      });
+      this.openDisciplinas = true;
+    },
+    loadTurmas: function loadTurmas(event, value) {
+      var _this3 = this;
+
+      axios.get("/api/disciplinas/".concat(event.target.value, "/turmas")).then(function (response) {
+        // console.log(response.data);
+        _this3["turmas_".concat(value)] = response.data;
+      })["catch"](function (error) {
+        console.log(error.response.data);
+      });
+    }
+  }
+});
+
+/***/ }),
+
 /***/ "./node_modules/bootstrap/dist/js/bootstrap.js":
 /*!*****************************************************!*\
   !*** ./node_modules/bootstrap/dist/js/bootstrap.js ***!
@@ -37200,6 +37335,211 @@ render._withStripped = true
 
 /***/ }),
 
+/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/TrocadorTurmas.vue?vue&type=template&id=763ef911&":
+/*!*****************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/TrocadorTurmas.vue?vue&type=template&id=763ef911& ***!
+  \*****************************************************************************************************************************************************************************************************************/
+/*! exports provided: render, staticRenderFns */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "render", function() { return render; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return staticRenderFns; });
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c("div", [
+    _c("div", { staticClass: "form-row" }, [
+      _c("div", { staticClass: "form-group col" }, [
+        _c("label", { attrs: { for: "departamento" } }, [
+          _vm._v("Selecione o Departamento:")
+        ]),
+        _vm._v(" "),
+        _c(
+          "select",
+          {
+            staticClass: "form-control",
+            attrs: { id: "departamento" },
+            on: { change: _vm.loadDisciplinas }
+          },
+          _vm._l(_vm.departamentos, function(departamento) {
+            return _c(
+              "option",
+              { key: departamento.id, domProps: { value: departamento.id } },
+              [_vm._v(_vm._s(departamento.nome))]
+            )
+          }),
+          0
+        )
+      ])
+    ]),
+    _vm._v(" "),
+    _c(
+      "div",
+      {
+        directives: [
+          {
+            name: "show",
+            rawName: "v-show",
+            value: _vm.openDisciplinas,
+            expression: "openDisciplinas"
+          }
+        ],
+        staticClass: "form-row"
+      },
+      [
+        _c("div", { staticClass: "form-group col" }, [
+          _c("label", { attrs: { for: "disciplina_origem" } }, [
+            _vm._v("Selecione a disciplina de origem:")
+          ]),
+          _vm._v(" "),
+          _c(
+            "select",
+            {
+              staticClass: "form-control",
+              attrs: { id: "disciplina_origem" },
+              on: {
+                change: function($event) {
+                  return _vm.loadTurmas($event, "origem")
+                }
+              }
+            },
+            _vm._l(_vm.disciplinas, function(disciplina) {
+              return _c(
+                "option",
+                { key: disciplina.id, domProps: { value: disciplina.id } },
+                [_vm._v(_vm._s(disciplina.nome))]
+              )
+            }),
+            0
+          )
+        ]),
+        _vm._v(" "),
+        _c("div", { staticClass: "form-group col-md-2" }, [
+          _c("label", { attrs: { for: "turma_origem" } }, [_vm._v("Turma:")]),
+          _vm._v(" "),
+          _c(
+            "select",
+            {
+              staticClass: "form-control",
+              attrs: {
+                id: "turma_origem",
+                name: "turma_origem",
+                disabled: _vm.turmas_origem == ""
+              },
+              on: {
+                change: function($event) {
+                  return _vm.loadTurmas($event, "origem")
+                }
+              }
+            },
+            _vm._l(_vm.turmas_origem, function(turma) {
+              return _c(
+                "option",
+                { key: turma.id, domProps: { value: turma.id } },
+                [_vm._v(_vm._s(turma.letra))]
+              )
+            }),
+            0
+          )
+        ])
+      ]
+    ),
+    _vm._v(" "),
+    _c(
+      "div",
+      {
+        directives: [
+          {
+            name: "show",
+            rawName: "v-show",
+            value: _vm.openDisciplinas,
+            expression: "openDisciplinas"
+          }
+        ],
+        staticClass: "form-row"
+      },
+      [
+        _c("div", { staticClass: "form-group col" }, [
+          _c("label", { attrs: { for: "disciplina_destino" } }, [
+            _vm._v("Selecione a disciplina de destino:")
+          ]),
+          _vm._v(" "),
+          _c(
+            "select",
+            {
+              staticClass: "form-control",
+              attrs: { id: "disciplina_destino" },
+              on: {
+                change: function($event) {
+                  return _vm.loadTurmas($event, "destino")
+                }
+              }
+            },
+            _vm._l(_vm.disciplinas, function(disciplina) {
+              return _c(
+                "option",
+                { key: disciplina.id, domProps: { value: disciplina.id } },
+                [_vm._v(_vm._s(disciplina.nome))]
+              )
+            }),
+            0
+          )
+        ]),
+        _vm._v(" "),
+        _c("div", { staticClass: "form-group col-md-2" }, [
+          _c("label", { attrs: { for: "turma_destino" } }, [_vm._v("Turma:")]),
+          _vm._v(" "),
+          _c(
+            "select",
+            {
+              staticClass: "form-control",
+              attrs: {
+                id: "turma_destino",
+                name: "turma_destino",
+                disabled: _vm.turmas_destino == ""
+              },
+              on: {
+                change: function($event) {
+                  return _vm.loadTurmas($event, "destino")
+                }
+              }
+            },
+            _vm._l(_vm.turmas_destino, function(turma) {
+              return _c(
+                "option",
+                { key: turma.id, domProps: { value: turma.id } },
+                [_vm._v(_vm._s(turma.letra))]
+              )
+            }),
+            0
+          )
+        ])
+      ]
+    ),
+    _vm._v(" "),
+    _c(
+      "button",
+      {
+        staticClass: "btn btn-lg btn-success float-right",
+        attrs: {
+          type: "submit",
+          disabled: (_vm.turmas_origem && _vm.turmas_destino) == ""
+        }
+      },
+      [_vm._v("Salvar Troca")]
+    )
+  ])
+}
+var staticRenderFns = []
+render._withStripped = true
+
+
+
+/***/ }),
+
 /***/ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js":
 /*!********************************************************************!*\
   !*** ./node_modules/vue-loader/lib/runtime/componentNormalizer.js ***!
@@ -49362,6 +49702,7 @@ window.Vue = __webpack_require__(/*! vue */ "./node_modules/vue/dist/vue.common.
 // files.keys().map(key => Vue.component(key.split('/').pop().split('.')[0], files(key).default))
 
 Vue.component('example-component', __webpack_require__(/*! ./components/ExampleComponent.vue */ "./resources/js/components/ExampleComponent.vue")["default"]);
+Vue.component('trocador-turmas', __webpack_require__(/*! ./components/TrocadorTurmas.vue */ "./resources/js/components/TrocadorTurmas.vue")["default"]);
 /**
  * Next, we will create a fresh Vue application instance and attach it to
  * the page. Then, you may begin adding components to this application
@@ -49483,6 +49824,75 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "render", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_ExampleComponent_vue_vue_type_template_id_299e239e___WEBPACK_IMPORTED_MODULE_0__["render"]; });
 
 /* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_ExampleComponent_vue_vue_type_template_id_299e239e___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
+
+
+
+/***/ }),
+
+/***/ "./resources/js/components/TrocadorTurmas.vue":
+/*!****************************************************!*\
+  !*** ./resources/js/components/TrocadorTurmas.vue ***!
+  \****************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _TrocadorTurmas_vue_vue_type_template_id_763ef911___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./TrocadorTurmas.vue?vue&type=template&id=763ef911& */ "./resources/js/components/TrocadorTurmas.vue?vue&type=template&id=763ef911&");
+/* harmony import */ var _TrocadorTurmas_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./TrocadorTurmas.vue?vue&type=script&lang=js& */ "./resources/js/components/TrocadorTurmas.vue?vue&type=script&lang=js&");
+/* empty/unused harmony star reexport *//* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
+
+
+
+
+
+/* normalize component */
+
+var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__["default"])(
+  _TrocadorTurmas_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__["default"],
+  _TrocadorTurmas_vue_vue_type_template_id_763ef911___WEBPACK_IMPORTED_MODULE_0__["render"],
+  _TrocadorTurmas_vue_vue_type_template_id_763ef911___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"],
+  false,
+  null,
+  null,
+  null
+  
+)
+
+/* hot reload */
+if (false) { var api; }
+component.options.__file = "resources/js/components/TrocadorTurmas.vue"
+/* harmony default export */ __webpack_exports__["default"] = (component.exports);
+
+/***/ }),
+
+/***/ "./resources/js/components/TrocadorTurmas.vue?vue&type=script&lang=js&":
+/*!*****************************************************************************!*\
+  !*** ./resources/js/components/TrocadorTurmas.vue?vue&type=script&lang=js& ***!
+  \*****************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_TrocadorTurmas_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/babel-loader/lib??ref--4-0!../../../node_modules/vue-loader/lib??vue-loader-options!./TrocadorTurmas.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/TrocadorTurmas.vue?vue&type=script&lang=js&");
+/* empty/unused harmony star reexport */ /* harmony default export */ __webpack_exports__["default"] = (_node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_TrocadorTurmas_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
+
+/***/ }),
+
+/***/ "./resources/js/components/TrocadorTurmas.vue?vue&type=template&id=763ef911&":
+/*!***********************************************************************************!*\
+  !*** ./resources/js/components/TrocadorTurmas.vue?vue&type=template&id=763ef911& ***!
+  \***********************************************************************************/
+/*! exports provided: render, staticRenderFns */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_TrocadorTurmas_vue_vue_type_template_id_763ef911___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../node_modules/vue-loader/lib??vue-loader-options!./TrocadorTurmas.vue?vue&type=template&id=763ef911& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/TrocadorTurmas.vue?vue&type=template&id=763ef911&");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "render", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_TrocadorTurmas_vue_vue_type_template_id_763ef911___WEBPACK_IMPORTED_MODULE_0__["render"]; });
+
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_TrocadorTurmas_vue_vue_type_template_id_763ef911___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
 
 
 

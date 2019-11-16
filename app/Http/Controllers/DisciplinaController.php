@@ -29,4 +29,12 @@ class DisciplinaController extends Controller
 
             return view('disciplinas.busca', compact('disciplinas', $disciplinas));
     }
+
+    public function getDisciplinasByDepartamento(Departamento $departamento)
+    {
+        $disciplinas = Disciplina::where('departamento_id', $departamento->id)
+                                    ->orderBy('nome')
+                                    ->get();
+        return $disciplinas;
+    }
 }

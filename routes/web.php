@@ -34,6 +34,5 @@ Route::get('/minhas-trocas', function(){
     return "Minhas trocas";
 })->name('turma_trocas.index');
 
-Route::get('/troca-turmas/novo', function(){
-    return "Trocador";
-})->name('turma_trocas.novo');
+Route::get('/troca-turmas/nova', 'TrocaTurmaController@nova')->name('turma_trocas.nova');
+Route::post('/troca-turmas', 'TrocaTurmaController@criar')->name('turma_trocas.criar');
