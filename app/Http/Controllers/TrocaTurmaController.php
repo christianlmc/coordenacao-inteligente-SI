@@ -9,6 +9,13 @@ use Illuminate\Support\Facades\Auth;
 
 class TrocaTurmaController extends Controller
 {
+    public function index()
+    {
+        $user_id = Auth::id();
+        $trocas = TurmaTroca::where('user_id', $user_id)->get();
+
+        return view('turma_trocas.index', compact('trocas', $trocas));
+    }
     public function nova()
     {
         return view('turma_trocas.nova');

@@ -13,7 +13,9 @@
                                 <label for="departamento">Departamento</label>
                                 <select class="form-control" id="departamento" name="departamento">
                                     @foreach ($departamentos as $departamento)
-                                    <option value="{{ $departamento->id }}" >{{ $departamento->nome }}</option>
+                                    <option value="{{ $departamento->id }}">
+                                      {{ $departamento->nome }}
+                                    </option>
                                     @endforeach
                                 </select>
                             </div>

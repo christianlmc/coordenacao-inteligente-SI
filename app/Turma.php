@@ -13,4 +13,9 @@ class Turma extends Model
         'vagas_ocupadas',
         'vagas_disponiveis'
     ];
+
+    public function disciplina()
+    {
+        return $this->belongsTo('App\Disciplina');
+    }
 }

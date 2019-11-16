@@ -11,4 +11,14 @@ class TurmaTroca extends Model
         'turma_origem_id',
         'turma_destino_id',
     ];
+
+    public function turma_origem()
+    {
+        return $this->belongsTo('App\Turma', 'turma_origem_id');
+    }
+
+    public function turma_destino()
+    {
+        return $this->belongsTo('App\Turma', 'turma_destino_id');
+    }
 }

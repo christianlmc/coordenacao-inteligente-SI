@@ -30,9 +30,6 @@ Route::get('/agendar-coordenador', function(){
 Route::get('/buscador-de-disciplinas', 'DisciplinaController@index')->name('disciplinas.index');
 Route::get('/buscador-de-disciplinas/resultados', 'DisciplinaController@buscar')->name('disciplinas.buscar');
 
-Route::get('/minhas-trocas', function(){
-    return "Minhas trocas";
-})->name('turma_trocas.index');
-
+Route::get('/minhas-trocas', 'TrocaTurmaController@index')->name('turma_trocas.index');
 Route::get('/troca-turmas/nova', 'TrocaTurmaController@nova')->name('turma_trocas.nova');
 Route::post('/troca-turmas', 'TrocaTurmaController@criar')->name('turma_trocas.criar');
