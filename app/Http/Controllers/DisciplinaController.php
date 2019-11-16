@@ -12,7 +12,7 @@ class DisciplinaController extends Controller
     {
         $departamentos = Departamento::all('nome', 'id')->sortBy('nome');
 
-        return view('disciplinas.buscar', compact('departamentos', $departamentos));
+        return view('disciplinas.index', compact('departamentos', $departamentos));
     }
 
     public function buscar(Request $request)
@@ -27,6 +27,6 @@ class DisciplinaController extends Controller
                 });
             })->get();
 
-        return $disciplinas;
+            return view('disciplinas.busca', compact('disciplinas', $disciplinas));
     }
 }
