@@ -27,9 +27,8 @@ Route::get('/agendar-coordenador', function(){
     return "Agendar coordenador";
 })->name('filas.agendar');
 
-Route::get('/buscador-de-disciplinas', function(){
-    return "Buscador de disciplinas";
-})->name('disciplinas.buscar');
+Route::get('/buscador-de-disciplinas', 'DisciplinaController@index')->name('disciplinas.index');
+Route::get('/buscador-de-disciplinas/resultados', 'DisciplinaController@buscar')->name('disciplinas.buscar');
 
 Route::get('/minhas-trocas', function(){
     return "Minhas trocas";
