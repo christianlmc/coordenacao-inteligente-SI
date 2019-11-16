@@ -23,9 +23,8 @@ Route::get('/fila-de-atendimento', function(){
     return "Fila de atendimento";
 })->name('filas.index');
 
-Route::get('/agendar-coordenador', function(){
-    return "Agendar coordenador";
-})->name('filas.agendar');
+Route::get('/agendar-coordenador', 'FilaController@agendar')->name('filas.agendar');
+Route::post('/agendar-coordenador', 'FilaController@criar')->name('filas.criar');
 
 Route::get('/buscador-de-disciplinas', 'DisciplinaController@index')->name('disciplinas.index');
 Route::get('/buscador-de-disciplinas/resultados', 'DisciplinaController@buscar')->name('disciplinas.buscar');

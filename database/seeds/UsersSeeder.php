@@ -16,7 +16,8 @@ class UsersSeeder extends Seeder
         $admin = [
             'name' => 'Admin',
             'email' => 'admin@unb.br',
-            'password' => Hash::make('123123')
+            'password' => Hash::make('123123'),
+            'curso_id' => 14
         ];
 
         User::create($admin);
