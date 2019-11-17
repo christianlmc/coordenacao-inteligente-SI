@@ -1,5 +1,6 @@
 <?php
 
+use App\Curso;
 use App\User;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\Hash;
@@ -17,7 +18,7 @@ class UsersSeeder extends Seeder
             'name' => 'Admin',
             'email' => 'admin@unb.br',
             'password' => Hash::make('123123'),
-            'curso_id' => 14
+            'curso_id' => Curso::where('nome', 'CIÊNCIA DA COMPUTAÇÃO')->first()->id
         ];
 
         User::create($admin);
