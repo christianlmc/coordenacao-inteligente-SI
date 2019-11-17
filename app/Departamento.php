@@ -12,4 +12,9 @@ class Departamento extends Model
     {
         return $this->hasMany('App\Disciplina', 'departamento_id');
     }
+
+    public function filas()
+    {
+        return $this->hasMany('App\Fila')->orderBy('created_at', 'ASC');
+    }
 }

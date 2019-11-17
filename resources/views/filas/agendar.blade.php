@@ -10,7 +10,7 @@
           <form method="POST" action="{{ route('filas.criar') }}">
             @csrf
             <div class="form-row">
-              <div class="form-group col-md-6">
+              <div class="form-group col">
                 <label for="departamento">Departamento</label>
                 <select class="form-control" id="departamento" name="departamento">
                   @foreach ($departamentos as $departamento)
@@ -20,18 +20,13 @@
                   @endforeach
                 </select>
               </div>
-              <div class="form-group col-md-6">
-                <label for="curso">Seu curso</label>
-                <select class="form-control" id="curso" name="curso">
-                  @foreach ($cursos as $curso)
-                  <option value="{{ $curso->id }}">
-                    {{ Str::title($curso->nome)." - $curso->turno" }}
-                  </option>
-                  @endforeach
-                </select>
+            </div>
+            <div class="form-row">
+              <div class="form-group col">
+                <label for="departamento">Motivo</label>
+                <textarea class="form-control" id="motivo" name="motivo" placeholder="Ex. Risco de desligamento"></textarea>
               </div>
             </div>
-
             <button type="submit" class="btn btn-lg btn-success float-right">Agendar</button>
           </form>
         </div>

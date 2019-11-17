@@ -19,10 +19,7 @@ Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
 
-Route::get('/fila-de-atendimento', function(){
-    return "Fila de atendimento";
-})->name('filas.index');
-
+Route::get('/fila-de-atendimento', 'FilaController@index')->name('filas.index');
 Route::get('/agendar-coordenador', 'FilaController@agendar')->name('filas.agendar');
 Route::post('/agendar-coordenador', 'FilaController@criar')->name('filas.criar');
 
